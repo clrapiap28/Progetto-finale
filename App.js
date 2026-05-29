@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Button, Image, StyleSheet, SafeAreaView } from "react-native";
+import React, {useState, useEffect} from "react";
+import {View, Text, Button, Image, StyleSheet, SafeAreaView} from "react-native";
 
 
-//  50 CARTE COMPLETE (Scuola)
+//50 CARTE COMPLETE (Situazioni spiacevoli a scuola)
 
 const carte=[
   {id:1, nome: "Dimentichi il quaderno di italiano", immagine: "fda67c50-652d-4b3e-9588-f78d3e689c2d.png", indice: 5.0},
@@ -15,12 +15,12 @@ const carte=[
   {id:8, nome: "Ti ammali proprio durante la settimana delle verifiche decisive", immagine: "https://www.issalute.it/images/foto_contributi/240x240/raffreddore.jpg", indice: 19.0 },
   {id:9, nome: "Entri nell’aula sbagliata davanti a tutti.", immagine: "c3953c35-96d1-44c6-8059-c54b54435c02.png", indice: 21.0 },
   {id:10, nome: "Il professore ti scopre mentre copi i compiti all’ultimo secondo", immagine: "6c9f8230-59c7-4b4a-9a5c-e7ed4526e393.png", indice: 23.0 },
-  {id:11, nome: "Vieni interrogato proprio sull’unico argomento che non hai studiato", immagine: "", indice: 25.0 },
+  {id:11, nome: "La classe è in silenzio totale e il tuo stomaco fa un rumore assurdo", immagine: "", indice: 25.0 },
   {id:12, nome: "Rompi accidentalmente la sedia mentre ti siedi", immagine: "435c189f-1271-491b-a2c1-329fdafdacb3.png", indice: 27.0 },
-  {id:13, nome: "Suona il telefono in classe nel silenzio totale", immagine: "", indice: 29.0 },
-  {id:14, nome: "Ti rendi conto di aver studiato il capitolo sbagliato", immagine: "", indice: 31.0 },
-  {id:15, nome: "Il compagno accanto a te vomita durante la verifica", immagine: "", indice: 33.0 },
-  {id:16, nome: "Ti si strappano i pantaloni mentre ti alzi", immagine: "", indice: 35.0 },
+  {id:13, nome: "Suona il telefono in classe nel silenzio totale", immagine: "ba4ddf7c-808d-49f9-9add-ba4bab7ba66d.png", indice: 29.0 },
+  {id:14, nome: "Ti rendi conto di aver studiato il capitolo sbagliato", immagine: "35f16ffe-5666-4091-82c0-2a5a148f3d72.png", indice: 31.0 },
+  {id:15, nome: "Il compagno accanto a te vomita durante la verifica", immagine: "b7868fa6-4dff-4b43-b124-bf2fe38cc0a1.png", indice: 33.0 },
+  {id:16, nome: "Ti si strappano i pantaloni mentre ti alzi", immagine: "bbf3422f-28d1-48b0-8849-92512bd55015.png", indice: 35.0 },
   {id:17, nome: "Il professore legge ad alta voce un tuo messaggio imbarazzante trovato sul banco", immagine: "", indice: 37.0 },
   {id:18, nome: "Prendi un’insufficienza enorme proprio nel giorno dei colloqui", immagine: "", indice: 39.0 },
   {id:19, nome: "La classe ride per una risposta completamente sbagliata che hai dato", immagine: "", indice: 41.0 },
@@ -33,28 +33,29 @@ const carte=[
   {id:26, nome: "Scopri di avere due verifiche a sorpresa nella stessa mattina", immagine: "", indice: 55.0 },
   {id:27, nome: "Il professore perde il tuo compito migliore e ti mette insufficiente perché “non risulta consegnato”", immagine: "", indice: 57.0 },
   {id:28, nome: "Informatica interroga a sorpresa sull'argomento che non hai capito", immagine: "", indice: 59.0 },
-  {id:29, nome: "", immagine: "", indice: 61.0 },
-  {id:30, nome: "", immagine: "", indice: 63.0 },
-  {id:31, nome: "", immagine: "", indice: 65.0 },
-  {id:32, nome: "", immagine: "", indice: 67.0 },
-  {id:33, nome: "", immagine: "", indice: 69.0 },
-  {id:34, nome: "", immagine: "", indice: 71.0 },
-  {id:35, nome: "", immagine: "", indice: 73.0 },
-  {id:36, nome: "", immagine: "", indice: 75.0 },
-  {id:37, nome: "", immagine: "", indice: 77.0 },
-  {id:38, nome: "", immagine: "", indice: 79.0 },
-  {id:39, nome: "", immagine: "", indice: 81.0 },
-  {id:40, nome: "", immagine: "", indice: 83.0 },
-  {id:41, nome: "", immagine: "", indice: 85.0 },
-  {id:42, nome: "", immagine: "", indice: 87.0 },
-  {id:43, nome: "", immagine: "", indice: 89.0 },
-  {id:44, nome: "", immagine: "", indice: 91.0 },
-  {id:45, nome: "", immagine: "", indice: 93.0 },
-  {id:46, nome: "", immagine: "", indice: 95.0 },
-  {id:47, nome: "", immagine: "", indice: 96.0 },
-  {id:48, nome: "", immagine: "", indice: 97.0 },
-  {id:49, nome: "", immagine: "", indice: 98.0 },
-  {id:50, nome: "Fai scena muta all’esame orale davanti alla commissione", immagine: "", indice: 99.5 },
+  {id:29, nome: "Il professore ti sceglie come esempio… di cosa NON fare", immagine: "", indice: 61.0 },
+  {id:30, nome: "Il tuo evidenziatore esplode e ti ritrovi le dita fluorescenti per tutto il giorno", immagine: "", indice: 63.0 },
+  {id:31, nome: "Il professore decide di mostrare “un elaborato anonimo pieno di errori”… ed è chiaramente il tuo", immagine: "", indice: 65.0 },
+  {id:32, nome: "Ti addormenti per un secondo e il prof ti fa una domanda proprio in quel momento", immagine: "", indice: 67.0 },
+  {id:33, nome: "Ti accorgi troppo tardi di aver scritto tutta la verifica con la matita", immagine: "", indice: 69.0 },
+  {id:34, nome: "Durante l’intervallo qualcuno si siede sul tuo panino senza accorgersene", immagine: "", indice: 71.0 },
+  {id:35, nome: "Stai per consegnare il compito e ti accorgi di aver saltato una pagina intera", immagine: "", indice: 73.0 },
+  {id:36, nome: "Hai caldo tutta la mattina perché hai messo una felpa pesantissima senza controllare il meteo", immagine: "", indice: 75.0 },
+  {id:37, nome: "Cerchi di aprire una porta spingendo… ma andava tirata", immagine: "", indice: 77.0},
+  {id:38, nome: "Devi leggere ad alta voce e trovi una parola che non sai pronunciare", immagine: "", indice: 79.0},
+  {id:39, nome: "Il professore continua a parlare durante una verifica distraendoti", immagine: "", indice: 81.0},
+  {id:40, nome: "Scrivi una risposta lunga e poi scopri di aver saltato la domanda precedente", immagine: "", indice: 83.0},
+  {id:41, nome: "Ti dimentichi di mettere il nome sulla verifica", immagine: "", indice: 85.0 },
+  {id:42, nome: "Vai in bagno durante l’intervallo e quando torni qualcuno ha preso il tuo posto", immagine: "", indice: 87.0},
+  {id:43, nome: "Arrivi con la batteria del computer al 2% e hai dimenticato il caricatore", immagine: "", indice: 89.0},
+  {id:44, nome: "Ti prestano un righello tutto piegato durante un compito sulle funzioni matematiche", immagine: "", indice: 91.0},
+  {id:45, nome: "Ti siedi nell’unico banco che traballa", immagine: "", indice: 93.0 },
+  {id:46, nome: "Prepari un discorso mentale perfetto per l’interrogazione… ma quando inizi a parlare ti incarti subito", immagine: "", indice: 95.0 },
+  {id:47, nome: "Dici sottovoce un gossip importantissimo al tuo compagno di banco e fanno tutti silenzio proprio nel momento clou ", immagine: "", indice: 96.0},
+  {id:48, nome: "Mentre cancelli la matita sulla verifica, ti si strappa il foglio", immagine: "", indice: 97.0},
+  {id:49, nome: "Ti dimentichi una bottiglietta aperta nello zaino per tutta la mattina.", immagine: "", indice: 98.0},
+  {id:50, nome: "Fai scena muta all’esame orale davanti alla commissione", immagine: "", indice: 100.0},
 ];
 
 
+const shuffle=(array)=>[...array].sort(()=>Math.random()-0.5);
