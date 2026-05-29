@@ -21,15 +21,15 @@ const carte=[
   {id:14, nome: "Ti rendi conto di aver studiato il capitolo sbagliato", immagine: "35f16ffe-5666-4091-82c0-2a5a148f3d72.png", indice: 31.0 },
   {id:15, nome: "Il compagno accanto a te vomita durante la verifica", immagine: "b7868fa6-4dff-4b43-b124-bf2fe38cc0a1.png", indice: 33.0 },
   {id:16, nome: "Ti si strappano i pantaloni mentre ti alzi", immagine: "bbf3422f-28d1-48b0-8849-92512bd55015.png", indice: 35.0 },
-  {id:17, nome: "Il professore legge ad alta voce un tuo messaggio imbarazzante trovato sul banco", immagine: "", indice: 37.0 },
-  {id:18, nome: "Prendi un’insufficienza enorme proprio nel giorno dei colloqui", immagine: "", indice: 39.0 },
-  {id:19, nome: "La classe ride per una risposta completamente sbagliata che hai dato", immagine: "", indice: 41.0 },
-  {id:20, nome: "Durante l’interrogazione ti viene un vuoto totale", immagine: "", indice: 43.0 },
-  {id:21, nome: "Ti rompi gli occhiali durante educazione fisica", immagine: "", indice: 45.0 },
+  {id:17, nome: "Il professore legge ad alta voce un tuo messaggio imbarazzante trovato sul banco", immagine: "244a0035-b667-45a7-8ec7-bb72bb369633.png", indice: 37.0 },
+  {id:18, nome: "Prendi un’insufficienza enorme proprio nel giorno dei colloqui", immagine: "7f7fc3da-84ff-44fd-80d0-3f6fcec4dfd7.png", indice: 39.0 },
+  {id:19, nome: "La classe ride per una risposta completamente sbagliata che hai dato", immagine: "d88e6f3b-84de-4d87-a53c-77be1a18525c.png", indice: 41.0 },
+  {id:20, nome: "Durante l’interrogazione ti viene un vuoto totale", immagine: "6d7c54a7-adc3-45e0-be4a-a1133131c5cd.png", indice: 43.0 },
+  {id:21, nome: "Ti rompi gli occhiali durante educazione fisica", immagine: "91316cb7-1748-464d-9a5b-f0d11e12b3c6.png", indice: 45.0 },
   {id:22, nome: "Rimani chiuso nel bagno durante la ricreazione", immagine: "", indice: 47.0 },
   {id:23, nome: "Il computer del laboratorio si blocca e perdi un progetto fatto in settimane", immagine: "", indice: 49.0 },
   {id:24, nome: "Ti cancellano per errore il voto migliore dal registro", immagine: "", indice: 51.0 },
-  {id:25, nome: "Prendi un’insufficienza proprio nel giorno dei colloqui", immagine: "", indice: 53.0 },
+  {id:25, nome: "Ti suona la campanella nell'orecchio", immagine: "", indice: 53.0 },
   {id:26, nome: "Scopri di avere due verifiche a sorpresa nella stessa mattina", immagine: "", indice: 55.0 },
   {id:27, nome: "Il professore perde il tuo compito migliore e ti mette insufficiente perché “non risulta consegnato”", immagine: "", indice: 57.0 },
   {id:28, nome: "Informatica interroga a sorpresa sull'argomento che non hai capito", immagine: "", indice: 59.0 },
@@ -53,9 +53,364 @@ const carte=[
   {id:46, nome: "Prepari un discorso mentale perfetto per l’interrogazione… ma quando inizi a parlare ti incarti subito", immagine: "", indice: 95.0 },
   {id:47, nome: "Dici sottovoce un gossip importantissimo al tuo compagno di banco e fanno tutti silenzio proprio nel momento clou ", immagine: "", indice: 96.0},
   {id:48, nome: "Mentre cancelli la matita sulla verifica, ti si strappa il foglio", immagine: "", indice: 97.0},
-  {id:49, nome: "Ti dimentichi una bottiglietta aperta nello zaino per tutta la mattina.", immagine: "", indice: 98.0},
+  {id:49, nome: "Ti dimentichi una bottiglietta aperta nello zaino per tutta la mattina", immagine: "", indice: 98.0},
   {id:50, nome: "Fai scena muta all’esame orale davanti alla commissione", immagine: "", indice: 100.0},
 ];
 
 
-const shuffle=(array)=>[...array].sort(()=>Math.random()-0.5);
+const shuffle=(arr)=>{
+  const copia=[...arr];
+
+  for(let i=copia.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [copia[i], copia[j]]=[copia[j], copia[i]];
+  }
+  return copia;
+}
+
+
+
+
+export default function App(){
+  const [schermata,setSchermata]=useState("HOME");
+  const [mano,setMano]=useState([]);
+  const [cartaRound,setCartaRound]=useState(null);
+  const [v,setVite]=useState(3);
+  const [timer,setTimer]=useState(30);
+  const [messaggio,setMessaggio]=useState("");
+
+
+
+  //INIZIA IL GIOCO
+  const startGame=()=>{
+    const iniziali=shuffle(carte).slice(0, 3).sort((a, b)=>a.indice-b.indice);
+    setMano(iniziali);
+    setVite(3);
+    setSchermata("GIOCO!");
+  };
+
+ 
+  //ALTRO ROUND
+ 
+  const altroRound=()=>{
+    const disponibili=carte.filter(c=>!mano.some(m=>m.id===c.id));
+    const scelta=disponibili[Math.floor(Math.random()*disponibili.length)];
+    setCartaRound(scelta);
+    setTimer(30);
+    setSchermata("ROUND");
+  };
+
+ 
+  //TIMER
+  
+  useEffect(()=>{
+    if(schermata!=="ROUND")return;
+
+    if (timer<=0){
+      setVite(v-1);
+      setMessaggio("DIN DIN DIN!!Tempo scaduto!Hai perso una vita ;(");
+      setSchermata("RISULTATO");
+      return;
+    }
+
+    const interval=setInterval(()=>setTimer(t=>t-1),1000);
+    return()=>clearInterval(interval);
+  }, [schermata, timer]);
+
+  
+  //CONTROLLO POSIZIONE
+  
+  const controlla=(posizioneScelta)=>{
+    const ordinata=[...mano,cartaRound].sort((a, b)=>a.indice-b.indice);
+    const posizioneCorretta=ordinata.indexOf(cartaRound);
+
+    if (posizioneScelta===posizioneCorretta){
+      setMano(ordinata);
+      setMessaggio("CORRETTO! Hai ottenuto la carta :)");
+    } else {
+      setVite(v-1);
+      setMessaggio("SBAGLIATO! Hai perso una vita ;(");
+    }
+
+    setSchermata("FINE");
+  };
+
+  
+  //FINE PARTITA
+  
+  useEffect(()=>{
+    if(mano.length===6){
+      setMessaggio("VICTORY! Hai ottenuto 6 carte.");
+      setSchermata("FINE");
+    }
+    if(v===0){
+      setMessaggio("LOSER! Hai finito le vite.");
+      setSchermata("FINE");
+    }
+  }, [mano, v]);
+
+  
+  //LE VITE
+ 
+  const renderVite=()=>{
+    return(
+      <Text style={styles.vite}>
+        {v>= 1 ? "❤️" : "🤍"}
+        {v>= 2 ? "❤️" : "🤍"}
+        {v>= 3 ? "❤️" : "🤍"}
+      </Text>
+    );
+  };
+
+
+  //SCHERMATE
+
+  if (schermata==="HOME"){
+  return(
+    <SafeAreaView style={styles.center}>
+      <Text style={styles.titolo}>
+        Gioco della Sfortuna
+      </Text>
+
+      <Button
+        title="Comincia la tua partita"
+        onPress={startGame}
+      />
+    </SafeAreaView>
+  );
+}
+
+if (schermata==="GIOCO!"){
+  return(
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.titolo}>Le tue carte</Text>
+
+      <Text style={styles.info}>Carte: {mano.length}/6 </Text>
+
+      {renderVite()}
+
+      {mano.map(c=>(
+        <Text key={c.id} style={styles.nome}>
+          {c.nome}
+        </Text>
+      ))}
+
+      <Button
+        title="Nuovo Round"
+        onPress={altroRound}
+      />
+    </SafeAreaView>
+  );
+}
+
+if (schermata==="ROUND"){
+  return(
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.titolo}>
+        Nuova Situazione
+      </Text>
+
+      <Text style={styles.info}>
+        Carte: {mano.length}/6
+      </Text>
+
+      {renderVite()}
+
+      <Text style={styles.timer}>
+        ⏳ {timer}s
+      </Text>
+
+      <Image
+        source={{uri: cartaRound.immagine}}
+        style={styles.img}
+      />
+
+      <Text style={styles.nome}>
+        {cartaRound.nome}
+      </Text>
+
+      {mano.map((m, i)=>(
+        <Button
+          key={i}
+          title={`Dopo ${m.indice}`}
+          onPress={()=>controlla(i+1)}
+        />
+      ))}
+    </SafeAreaView>
+  );
+}
+
+if (schermata==="RISULTATO"){
+  return(
+    <SafeAreaView style={styles.center}>
+      <Text style={styles.titolo}>
+        {messaggio}
+      </Text>
+
+      <Button
+        title="Continua"
+        onPress={altroRound}
+      />
+    </SafeAreaView>
+  );
+}
+
+if(schermata==="FINE"){
+  return(
+    <SafeAreaView style={styles.center}>
+      <Text style={styles.titolo}>
+        {messaggio}
+      </Text>
+
+      <Button
+        title="Torna alla Home"
+        onPress={() => setSchermata("HOME")}
+      />
+    </SafeAreaView>
+  );
+}
+
+return null;  
+
+}
+
+const styles=StyleSheet.create({
+
+  container:{
+    flex:1,
+    padding:20,
+    backgroundColor:"lightblue",
+  },
+
+
+
+  center:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center",
+    backgroundColor:"lightblue",
+    padding:20,
+  },
+
+
+
+  titolo:{
+    fontSize:32,
+    fontWeight:"bold",
+    marginBottom:20,
+    textAlign:"center",
+    color:"white",
+  },
+
+
+
+  info:{
+    fontSize:18,
+    marginBottom:8,
+    textAlign:"center",
+    color:"lightgray",
+  },
+
+
+
+  timer:{
+    fontSize:30,
+    fontWeight:"bold",
+    color:"red",
+    marginBottom:15,
+    textAlign:"center",
+  },
+
+
+
+  vite:{
+    fontSize:32,
+    marginBottom:20,
+    textAlign:"center",
+  },
+
+
+
+  img:{
+    width:"100%",
+    height:240,
+    borderRadius:20,
+    marginVertical:15,
+    resizeMode:"cover",
+    borderWidth:3,
+    borderColor:"gray",
+  },
+
+
+
+  nome:{
+    fontSize:22,
+    textAlign:"center",
+    color:"white",
+    marginBottom:20,
+    fontWeight:"600",
+    lineHeight:30,
+  },
+
+
+
+  cartaRound:{
+    backgroundColor:"blue",
+    padding:18,
+    borderRadius:20,
+    marginBottom:15,
+    shadowColor:"black",
+    shadowOffset:{
+      width:0,
+      height:4,
+    },
+    shadowOpacity:0.3,
+    shadowRadius:5,
+    elevation:6,
+  },
+
+
+
+  testoCarta:{
+    color:"white",
+    fontSize:17,
+    lineHeight:24,
+  },
+
+
+
+  bottone:{
+    backgroundColor:"lightblue",
+    padding:15,
+    borderRadius:15,
+    marginTop:12,
+  },
+
+
+
+  testoBottone:{
+    color:"white",
+    textAlign:"center",
+    fontSize:18,
+    fontWeight:"bold",
+  },
+
+
+
+  schermataFinale:{
+    backgroundColor:"darkblue",
+    padding:30,
+    borderRadius:25,
+    width:"90%",
+  },
+
+});
+
+
+
+
+
+
+
+
+
