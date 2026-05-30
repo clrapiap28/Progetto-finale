@@ -4,6 +4,23 @@ import {View, Text, Button, Image, StyleSheet, SafeAreaView} from "react-native"
 
 //50 CARTE COMPLETE (Situazioni spiacevoli a scuola)
 
+/**
+ * Elenco completo delle carte del gioco.
+ * Ogni carta rappresenta una situazione sfortunata a scuola
+ * con un indice di sfortuna compreso tra 5 e 100.
+ *
+ * @typedef {Object} Carta
+ * @property {number} id Identificativo univoco.
+ * @property {string} nome Descrizione della situazione.
+ * @property {string} immagine Percorso o URL dell'immagine.
+ * @property {number} indice Grado di sfortuna della carta.
+ */
+
+/**
+ * Mazzo completo delle carte disponibili.
+ * @type {Carta[]}
+ */
+
 const carte=[
   {id:1, nome: "Dimentichi il quaderno di italiano", immagine: "fda67c50-652d-4b3e-9588-f78d3e689c2d.png", indice: 5.0},
   {id:2, nome: "Cade l'astuccio aperto per terra e finisce tutto a terra", immagine: "c3915113-4ff0-4c6d-829e-4f11875fb337.png", indice: 7.0},
