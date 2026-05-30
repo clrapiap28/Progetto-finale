@@ -133,13 +133,6 @@ export default function App(){
 
 
 
-/**
- * @function altroRound
- * @description Estrae una nuova carta casuale tra quelle che
- * non sono ancora uscite al giocatore e avvia il round.
- *
- * @returns {void}
- */
 
 
   //INIZIA IL GIOCO
@@ -150,7 +143,16 @@ export default function App(){
     setSchermata("GIOCO!");
   };
 
- 
+
+  
+/**
+ * @function altroRound
+ * @description Estrae una nuova carta casuale tra quelle che
+ * non sono ancora uscite al giocatore e avvia il round.
+ *
+ * @returns {void}
+ */
+
   //ALTRO ROUND
  
   const altroRound=()=>{
@@ -163,6 +165,10 @@ export default function App(){
 
  
   //TIMER
+   /**
+ * @description Gestisce il conto alla rovescia del round.
+ * Se scade il tempo, il timer raggiunge 0 e il giocatore perde una vita.
+ */
   
   useEffect(()=>{
     if(schermata!=="ROUND")return;
@@ -180,6 +186,13 @@ export default function App(){
 
   
   //CONTROLLO POSIZIONE
+
+  /**
+ * Verifica se la posizione scelta dal giocatore è corretta.
+ *
+ * @param {number} posizioneScelta Posizione selezionata.
+ * @returns {void}
+ */
   
   const controlla=(posizioneScelta)=>{
     const ordinata=[...mano,cartaRound].sort((a, b)=>a.indice-b.indice);
@@ -199,6 +212,10 @@ export default function App(){
   
   //FINE PARTITA
   
+  /**
+ * @description Controlla le condizioni di vittoria
+ * o sconfitta della partita.
+ */
   useEffect(()=>{
     if(mano.length===6){
       setMessaggio("VICTORY! Hai ottenuto 6 carte.");
@@ -211,6 +228,12 @@ export default function App(){
   }, [mano, v]);
 
   
+  /**
+ * @function renderVite
+ * @description Mostra le vite rimanenti tramite icone a cuore.
+ *
+ * @returns {JSX.Element} Indicatore grafico delle vite.
+ */
   //LE VITE
  
   const renderVite=()=>{
@@ -335,6 +358,14 @@ return null;
 
 }
 
+
+
+
+/**
+ * @constant styles
+ * @description Contiene tutti gli stili utilizzati
+ * dall'interfaccia dell'applicazione.
+ */
 const styles=StyleSheet.create({
 
   container:{
