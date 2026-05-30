@@ -21,6 +21,12 @@ import {View, Text, Button, Image, StyleSheet, SafeAreaView} from "react-native"
  * @type {Carta[]}
  */
 
+import React, {useState, useEffect} from "react";
+import {View, Text, Button, Image, StyleSheet, SafeAreaView} from "react-native";
+
+
+//50 CARTE COMPLETE (Situazioni spiacevoli a scuola)
+
 const carte=[
   {id:1, nome: "Dimentichi il quaderno di italiano", immagine: "fda67c50-652d-4b3e-9588-f78d3e689c2d.png", indice: 5.0},
   {id:2, nome: "Cade l'astuccio aperto per terra e finisce tutto a terra", immagine: "c3915113-4ff0-4c6d-829e-4f11875fb337.png", indice: 7.0},
@@ -57,8 +63,8 @@ const carte=[
   {id:33, nome: "Ti accorgi troppo tardi di aver scritto tutta la verifica con la matita", immagine: "0aac4005-2579-4c3a-b71c-4c3a056fad85.png", indice: 69.0 },
   {id:34, nome: "Durante l’intervallo qualcuno si siede sul tuo panino senza accorgersene", immagine: "7a6b0760-d092-4141-b978-e6d0a734656f.png", indice: 71.0 },
   {id:35, nome: "Stai per consegnare il compito e ti accorgi di aver saltato una pagina intera", immagine: "5b27109e-a612-46ee-9934-ea740e02e11b.png", indice: 73.0 },
-  {id:36, nome: "Hai caldo tutta la mattina perché hai messo una felpa pesantissima senza controllare il meteo", immagine: "", indice: 75.0 },
-  {id:37, nome: "Cerchi di aprire una porta spingendo… ma andava tirata", immagine: "", indice: 77.0},
+  {id:36, nome: "Hai caldo tutta la mattina perché hai messo una felpa pesantissima senza controllare il meteo", immagine: "07f20232-3d81-4abf-af7d-3db2771a7fda.png", indice: 75.0 },
+  {id:37, nome: "Cerchi di aprire una porta spingendo… ma andava tirata", immagine: "1ffe1ffc-7cd0-4486-a681-8ffc348bf1ea.png", indice: 77.0},
   {id:38, nome: "Devi leggere ad alta voce e trovi una parola che non sai pronunciare", immagine: "", indice: 79.0},
   {id:39, nome: "Il professore continua a parlare durante una verifica distraendoti", immagine: "", indice: 81.0},
   {id:40, nome: "Scrivi una risposta lunga e poi scopri di aver saltato la domanda precedente", immagine: "", indice: 83.0},
@@ -423,6 +429,15 @@ const styles=StyleSheet.create({
   },
 
 });
+
+
+
+
+
+
+
+
+
 
 
 
