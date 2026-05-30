@@ -65,10 +65,10 @@ const carte=[
   {id:35, nome: "Stai per consegnare il compito e ti accorgi di aver saltato una pagina intera", immagine: "5b27109e-a612-46ee-9934-ea740e02e11b.png", indice: 73.0 },
   {id:36, nome: "Hai caldo tutta la mattina perché hai messo una felpa pesantissima senza controllare il meteo", immagine: "07f20232-3d81-4abf-af7d-3db2771a7fda.png", indice: 75.0 },
   {id:37, nome: "Cerchi di aprire una porta spingendo… ma andava tirata", immagine: "1ffe1ffc-7cd0-4486-a681-8ffc348bf1ea.png", indice: 77.0},
-  {id:38, nome: "Devi leggere ad alta voce e trovi una parola che non sai pronunciare", immagine: "", indice: 79.0},
-  {id:39, nome: "Il professore continua a parlare durante una verifica distraendoti", immagine: "", indice: 81.0},
-  {id:40, nome: "Scrivi una risposta lunga e poi scopri di aver saltato la domanda precedente", immagine: "", indice: 83.0},
-  {id:41, nome: "Ti dimentichi di mettere il nome sulla verifica", immagine: "", indice: 85.0 },
+  {id:38, nome: "Devi leggere ad alta voce e trovi una parola che non sai pronunciare", immagine: "ec9ad513-48e0-4afc-825f-1fbee772213a.png", indice: 79.0},
+  {id:39, nome: "Il professore continua a parlare durante una verifica distraendoti", immagine: "b7026fcb-f3ca-4f94-90dd-4d814dae6c1f.png", indice: 81.0},
+  {id:40, nome: "Scrivi una risposta lunga e poi scopri di aver saltato la domanda precedente", immagine: "b6d84a3b-017a-4e64-a546-0547080c3461.png", indice: 83.0},
+  {id:41, nome: "Ti dimentichi di mettere il nome sulla verifica", immagine: "c19ed8df-8dac-48af-9731-e84d6aca26ed.png", indice: 85.0 },
   {id:42, nome: "Vai in bagno durante l’intervallo e quando torni qualcuno ha preso il tuo posto", immagine: "", indice: 87.0},
   {id:43, nome: "Arrivi con la batteria del computer al 2% e hai dimenticato il caricatore", immagine: "", indice: 89.0},
   {id:44, nome: "Ti prestano un righello tutto piegato durante un compito sulle funzioni matematiche", immagine: "", indice: 91.0},
@@ -80,6 +80,14 @@ const carte=[
   {id:50, nome: "Fai scena muta all’esame orale davanti alla commissione", immagine: "", indice: 100.0},
 ];
 
+
+
+/**
+ * @description Mescola casualmente un array utilizzando
+ *
+ * @param {Array} arr Array da mescolare.
+ * @returns {Array} Copia dell'array mescolato.
+ */
 
 const shuffle=(arr)=>{
   const copia=[...arr];
