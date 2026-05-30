@@ -28,7 +28,7 @@ import {View, Text, Button, Image, StyleSheet, SafeAreaView} from "react-native"
 //50 CARTE COMPLETE (Situazioni spiacevoli a scuola)
 
 const carte=[
-  {id:1, nome: "Dimentichi il quaderno di italiano", immagine: "fda67c50-652d-4b3e-9588-f78d3e689c2d.png", indice: 5.0},
+   {id:1, nome: "Dimentichi il quaderno di italiano", immagine: "fda67c50-652d-4b3e-9588-f78d3e689c2d.png", indice: 5.0},
   {id:2, nome: "Cade l'astuccio aperto per terra e finisce tutto a terra", immagine: "c3915113-4ff0-4c6d-829e-4f11875fb337.png", indice: 7.0},
   {id:3, nome: "Ti dimentichi dello zaino sull’autobus", immagine: "https://thumbs.dreamstime.com/b/una-borsa-perduta-o-uno-zaino-sdraiato-sul-sedile-dell-autobus-sullo-sfondo-sfuocato-del-bus-beni-immobili-nei-trasporti-pubblici-229783651.jpg", indice: 9.0},
   {id:4, nome: "La tua presentazione PowerPoint non si apre", immagine: "https://images.wondershare.com/recoverit/article/2019/05/ppt-error-1.jpg", indice: 11.0},
@@ -69,16 +69,17 @@ const carte=[
   {id:39, nome: "Il professore continua a parlare durante una verifica distraendoti", immagine: "b7026fcb-f3ca-4f94-90dd-4d814dae6c1f.png", indice: 81.0},
   {id:40, nome: "Scrivi una risposta lunga e poi scopri di aver saltato la domanda precedente", immagine: "b6d84a3b-017a-4e64-a546-0547080c3461.png", indice: 83.0},
   {id:41, nome: "Ti dimentichi di mettere il nome sulla verifica", immagine: "c19ed8df-8dac-48af-9731-e84d6aca26ed.png", indice: 85.0 },
-  {id:42, nome: "Vai in bagno durante l’intervallo e quando torni qualcuno ha preso il tuo posto", immagine: "", indice: 87.0},
-  {id:43, nome: "Arrivi con la batteria del computer al 2% e hai dimenticato il caricatore", immagine: "", indice: 89.0},
-  {id:44, nome: "Ti prestano un righello tutto piegato durante un compito sulle funzioni matematiche", immagine: "", indice: 91.0},
-  {id:45, nome: "Ti siedi nell’unico banco che traballa", immagine: "", indice: 93.0 },
-  {id:46, nome: "Prepari un discorso mentale perfetto per l’interrogazione… ma quando inizi a parlare ti incarti subito", immagine: "", indice: 95.0 },
-  {id:47, nome: "Dici sottovoce un gossip importantissimo al tuo compagno di banco e fanno tutti silenzio proprio nel momento clou ", immagine: "", indice: 96.0},
-  {id:48, nome: "Mentre cancelli la matita sulla verifica, ti si strappa il foglio", immagine: "", indice: 97.0},
-  {id:49, nome: "Ti dimentichi una bottiglietta aperta nello zaino per tutta la mattina", immagine: "", indice: 98.0},
-  {id:50, nome: "Fai scena muta all’esame orale davanti alla commissione", immagine: "", indice: 100.0},
+  {id:42, nome: "Vai in bagno durante l’intervallo e quando torni qualcuno ha preso il tuo posto", immagine: "b94d1404-00ec-4ebe-bf43-f66cabfbee5d.png", indice: 87.0},
+  {id:43, nome: "Arrivi con la batteria del computer al 2% e hai dimenticato il caricatore", immagine: "https://c8.alamy.com/compit/2tar36n/immagine-di-un-icona-di-batteria-scarica-del-2-di-un-telefono-2tar36n.jpg", indice: 89.0},
+  {id:44, nome: "Ti prestano un righello tutto piegato durante un compito sulle funzioni matematiche", immagine: "https://copilot.microsoft.com/th/id/BCO.05852934-8187-4bdd-bb49-e76ea27cb33e.png", indice: 91.0},
+  {id:45, nome: "Ti siedi nell’unico banco che traballa", immagine: "https://copilot.microsoft.com/th/id/BCO.e35f5263-58b3-4724-9cb7-e0d5af1e7871.png", indice: 93.0 },
+  {id:46, nome: "Prepari un discorso mentale perfetto per l’interrogazione… ma quando inizi a parlare ti incarti subito", immagine: "https://ts2.mm.bing.net/th?id=OIP.VAQ3yamUOVG94YeJ3985TwHaE8&pid=15.1&o=7&rm=3", indice: 95.0 },
+  {id:47, nome: "Dici sottovoce un gossip importantissimo al tuo compagno di banco e fanno tutti silenzio proprio nel momento clou ", immagine: "https://copilot.microsoft.com/th/id/BCO.4091e587-c513-4114-a6ae-e6defb637eec.png", indice: 96.0},
+  {id:48, nome: "Mentre cancelli la matita sulla verifica, ti si strappa il foglio", immagine: "https://copilot.microsoft.com/th/id/BCO.22c7c171-5d0c-4731-99f5-2940ece1c991.png", indice: 97.0},
+  {id:49, nome: "Ti dimentichi una bottiglietta aperta nello zaino per tutta la mattina", immagine: "https://copilot.microsoft.com/th/id/BCO.43ac8038-f3e5-4639-8ab5-c13e8d39b8cf.png", indice: 98.0},
+  {id:50, nome: "Fai scena muta all’esame orale davanti alla commissione", immagine: "https://copilot.microsoft.com/th/id/BCO.e951c563-8568-4fb2-b8af-0adf86e29d92.png", indice: 100.0},
 ];
+
 
 
 
