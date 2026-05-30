@@ -31,15 +31,15 @@ const carte=[
   {id:24, nome: "Ti cancellano per errore il voto migliore dal registro", immagine: "afdaf47f-21cd-46dd-9be1-4d6547c7d8c9.png", indice: 51.0 },
   {id:25, nome: "Ti suona la campanella nell'orecchio", immagine: "fc444c8d-f279-4251-8f41-a9e0672d14c5.png", indice: 53.0 },
   {id:26, nome: "Scopri di avere due verifiche a sorpresa nella stessa mattina", immagine: "4929cde0-e3c2-4805-ac41-5ce41a5b265a.png", indice: 55.0 },
-  {id:27, nome: "Il professore perde il tuo compito migliore e ti mette insufficiente perché “non risulta consegnato”", immagine: "", indice: 57.0 },
-  {id:28, nome: "Informatica interroga a sorpresa sull'argomento che non hai capito", immagine: "", indice: 59.0 },
-  {id:29, nome: "Il professore ti sceglie come esempio… di cosa NON fare", immagine: "", indice: 61.0 },
-  {id:30, nome: "Il tuo evidenziatore esplode e ti ritrovi le dita fluorescenti per tutto il giorno", immagine: "", indice: 63.0 },
-  {id:31, nome: "Il professore decide di mostrare “un elaborato anonimo pieno di errori”… ed è chiaramente il tuo", immagine: "", indice: 65.0 },
-  {id:32, nome: "Ti addormenti per un secondo e il prof ti fa una domanda proprio in quel momento", immagine: "", indice: 67.0 },
-  {id:33, nome: "Ti accorgi troppo tardi di aver scritto tutta la verifica con la matita", immagine: "", indice: 69.0 },
-  {id:34, nome: "Durante l’intervallo qualcuno si siede sul tuo panino senza accorgersene", immagine: "", indice: 71.0 },
-  {id:35, nome: "Stai per consegnare il compito e ti accorgi di aver saltato una pagina intera", immagine: "", indice: 73.0 },
+  {id:27, nome: "Il professore perde il tuo compito migliore e ti mette insufficiente perché “non risulta consegnato”", immagine: "6f5eb12d-9808-42e4-a44a-3d6b26f0ead3.png", indice: 57.0 },
+  {id:28, nome: "Informatica interroga a sorpresa sull'argomento che non hai capito", immagine: "784f6ce3-a159-404e-a8ea-052c50bb800a.png", indice: 59.0 },
+  {id:29, nome: "Il professore ti sceglie come esempio… di cosa NON fare", immagine: "32eb84c2-a20d-4bdc-b620-39e45bad7acf.png", indice: 61.0 },
+  {id:30, nome: "Il tuo evidenziatore esplode e ti ritrovi le dita fluorescenti per tutto il giorno", immagine: "3237cebf-5830-472a-b263-2ff04636b2a3.png", indice: 63.0 },
+  {id:31, nome: "Il professore decide di mostrare “un elaborato anonimo pieno di errori”… ed è chiaramente il tuo", immagine: "4678e853-89c7-4470-8fe6-28d8cebd00c3.png", indice: 65.0 },
+  {id:32, nome: "Ti addormenti per un secondo e il prof ti fa una domanda proprio in quel momento", immagine: "1a1c829a-827c-4898-849d-3bf8d0149400.png", indice: 67.0 },
+  {id:33, nome: "Ti accorgi troppo tardi di aver scritto tutta la verifica con la matita", immagine: "0aac4005-2579-4c3a-b71c-4c3a056fad85.png", indice: 69.0 },
+  {id:34, nome: "Durante l’intervallo qualcuno si siede sul tuo panino senza accorgersene", immagine: "7a6b0760-d092-4141-b978-e6d0a734656f.png", indice: 71.0 },
+  {id:35, nome: "Stai per consegnare il compito e ti accorgi di aver saltato una pagina intera", immagine: "5b27109e-a612-46ee-9934-ea740e02e11b.png", indice: 73.0 },
   {id:36, nome: "Hai caldo tutta la mattina perché hai messo una felpa pesantissima senza controllare il meteo", immagine: "", indice: 75.0 },
   {id:37, nome: "Cerchi di aprire una porta spingendo… ma andava tirata", immagine: "", indice: 77.0},
   {id:38, nome: "Devi leggere ad alta voce e trovi una parola che non sai pronunciare", immagine: "", indice: 79.0},
@@ -310,6 +310,7 @@ const styles=StyleSheet.create({
     textAlign:"center",
     color:"lightgray",
   },
+
 
 
 
