@@ -102,6 +102,16 @@ const shuffle=(arr)=>{
 
 
 
+
+/**
+ * @component App
+ * @description Componente principale del gioco.
+ * Gestisce schermate, timer, vite e carte del giocatore.
+ *
+ * @returns {JSX.Element} Interfaccia dell'applicazione.
+ */
+
+
 export default function App(){
   const [schermata,setSchermata]=useState("HOME");
   const [mano,setMano]=useState([]);
@@ -110,6 +120,26 @@ export default function App(){
   const [timer,setTimer]=useState(30);
   const [messaggio,setMessaggio]=useState("");
 
+
+
+
+/**
+ * @function startGame
+ * @description Inizializza una nuova partita,
+ * assegna 3 carte iniziali e (dovrebbe) ripristina le vite.
+ *
+ * @returns {void}
+ */
+
+
+
+/**
+ * @function altroRound
+ * @description Estrae una nuova carta casuale tra quelle che
+ * non sono ancora uscite al giocatore e avvia il round.
+ *
+ * @returns {void}
+ */
 
 
   //INIZIA IL GIOCO
